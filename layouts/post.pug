@@ -8,42 +8,21 @@ html(lang="zh")
         +gbase()
         title= __title__(post.title,'read')
     body.colorful(OCP='OVERRIDE',style='--color1:'+Plugin.getColorByString(post.foreword)+';--color2:'+Plugin.getColorByString(post.parsed.foreword))
-        +gnome_header()
-        .intro#intro.tac
-            .h1= post.title
-        main.content#content
+        +NavBar
+        +PageLabel
+        main
             unless post.old == true
-                section.small
+                .uWcon.small
                     h2= i18n('Foreword')
                     != post.parsed.foreword
-            section
-                article.block#markdown_fillContent
+            .uWcon
+                article#markdown_fillContent
                     if post.old == true
                         != post.parsed.foreword
                     != post.parsed.content
-            section.small.fit(class=post.license.is_cc_license()&&'cclogo')
-                if post.license.is_cc_license()
-                    a.Heading(href='https://creativecommons.org/')
-                        = i18n('Distribution License Agreement') + ' '
-                        i.fa-brands.fa-creative-commons(aria-hidden='true')
-                    .inner
-                        - let is = (v)=>post.license.includes(v)
-                        if is('BY')
-                            span BY
-                                i.fa-brands.fa-creative-commons-by
-                        if is('NC')
-                            span NC
-                                i.fa-brands.fa-creative-commons-nc
-                        if is('ND')
-                            span ND
-                                i.fa-brands.fa-creative-commons-nd
-                        if is('SA')
-                            span SA
-                                i.fa-brands.fa-creative-commons-sa
-                else
-                    .Heading= i18n('Distribution License Agreement')
-                    .container= i18n('@CC_PRIVATE')
-            section
+            .uWcon.fit(class=post.license.isCreativeCommons()&&'cclogo')
+                +license_notice(post)
+            .uWcon
                 .pagination
                     - let earliest = post.nextID?false:true
                     - let latest = post.prevID?false:true
@@ -56,7 +35,7 @@ html(lang="zh")
                         = earliest?i18n('Already earliest'):__next.title
                         = ' →'
                     a.top(href='#')= i18n('Top')
-        +gnome_footer()
+        +Footer
         .fix#toc
         .fix.toc-con-button.nomobile
             button= 'TOC'

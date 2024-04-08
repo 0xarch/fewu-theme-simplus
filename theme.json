@@ -1,11 +1,9 @@
 {
-    "name": "Wacal Theme",
+    "name": "Simplus",
     "author": "0xarch",
-    "thanks": "The GNOME VDG",
-    "description": "Simple theme for Nexo",
+    "description": "Simple theme for Fewu",
     "lib": [
-        "@:highlightjs:&&:unpkg",
-        "@:0xarch:Wark/GNOME:jsdelivr"
+        "@:highlightjs:&&:unpkg"
     ],
     "operations": [
         {

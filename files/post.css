@@ -65,9 +65,7 @@
 blockquote {
 	margin: 0;
 	padding: .5rem;
-}
-blockquote>p{
-    margin: .25rem;
+    border-left: 3px solid var(--blue2);
 }
 #markdown_fillContent p img{
     max-width: 100%;

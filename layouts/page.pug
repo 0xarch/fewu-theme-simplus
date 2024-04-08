@@ -6,13 +6,14 @@ html
         +gbase()
         title= __title__(i18n('Posts'),user.name)
     body(OCP='OVERRIDE') 
-        +gnome_header()
+        +NavBar
         .intro#intro.tac
             h1= i18n('Posts') + i18n('Page '+cycling.now)
-        main.content#content
-            ul.intros(style='grid-template-columns:repeat(auto-fill,minmax(480px,1fr))')
-                    each bid in cycling.value
-                        +post_li(ID[bid])
+        main
+            ul.cPostCon.uWcon(style='grid-template-columns:repeat(auto-fill,minmax(400px,1fr))')
+                each bid in sort.defaultOrder.slice(0,10)
+                    +SinglePost(IDMap.get(bid))
+                    br
             +foot_navigator(cycling.total,cycling.now,'page')
-        +gnome_footer()
+        +Footer
         include /components/searchPanel.pug

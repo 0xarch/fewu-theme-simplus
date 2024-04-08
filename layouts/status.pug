@@ -6,9 +6,8 @@ html
         +gbase()
         title= __title__(i18n('Status'),user.name)
     body(OCP='OVERRIDE')
-        +gnome_header()
-        #intro.intro.tac
-            h1=i18n('Status')
+        +NavBar
+        +PageLabel(i18n('Status'))
         main.content#content
             +counter_section()
             .special
@@ -39,5 +38,5 @@ html
                         div
                             b=k
                             i=v
-        +gnome_footer()
+        +Footer
         include /components/searchPanel.pug

@@ -1,0 +1,9 @@
+header.navbar
+    a.logo(href=file())
+        != (user.data && user.data.logo) ? user.data.logo : fewu.logo()
+        != theme.logoText
+    details(open='true')
+        summary!= plugin.load_svg('kde-menu')
+        .con
+            each v in __prov_map||theme.headerObjects
+                a(href=file(v[0]))= i18n(v[1])

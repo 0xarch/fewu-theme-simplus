@@ -1,5 +1,7 @@
 {
-    "@CC_PRIVATE": "The copyright of this article belongs to the original author. When others share it, they are not allowed to create it again and must indicate the original author.",
+    "@CC_PRIVATE": "The copyright of this post belongs to the original author. When others share it, they are not allowed to create it again and must indicate the original author.",
+    "@CC_REPRINT": "This post comes from other sources. This post may not indicate copyright information. If you need to share this post and the information contained in it, please review the original post and indicate the original author.",
+    "@COPYR_TEXT": "",
     "@STAT_PRO_WARN": "We only recommend professionals to read the following information, as you may misunderstand the information and cause unnecessary trouble.",
     ">>": "→",
     "<<": "←"

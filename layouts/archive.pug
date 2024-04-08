@@ -6,9 +6,8 @@ html
         +gbase()
         title= __title__(i18n('Archives'),user.name)
     body(OCP='OVERRIDE') 
-        +gnome_header()
-        .intro#intro.tac
-            h1= i18n('Archives')
+        +NavBar
+        +PageLabel(i18n('Archives'))
         main.content#content
             - let used_year = []
             - let y = {}
@@ -23,7 +22,7 @@ html
                     h2= k
                 ul.intros(style='grid-template-columns:repeat(auto-fill,minmax(480px,1fr))')
                     each item in v
-                        +post_li(ID[item])
+                        +post_li(IDMap.get(item))
                 +foot_navigator(cycling.total,cycling.now,'archive')
         +gnome_footer()
     style.

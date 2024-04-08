@@ -1,0 +1,5 @@
+.uWcon
+    h1!= user.name
+    div
+        a.p8(href=file('feed.xml'))!= plugin.load_svg('kde-rss')+' RSS'
+        a.p8(href=user.url)= i18n('Follow')

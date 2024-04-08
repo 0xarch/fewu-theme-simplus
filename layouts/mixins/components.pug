@@ -3,8 +3,8 @@ mixin gnome_page_navigator(total,now,name)
         - let disable_all = total==1
         - let enable_prev = !disable_all&&now!=1
         - let enable_next = !disable_all&&now!=total
-        - let limit_front = now ==1 ? 1 :now - 2 > 1 ? now - 2 : 2
-        - let limit_end = now == total ? total : now + 2 < total ? now + 2 : 15
+        - let limit_front = now ==1 ? 1 :now >= 3 ? now - 2 : 1
+        - let limit_end = now == total ? total : now + 2 < total ? now + 2 : total
         a(href=enable_prev&&file(`/${name}/${now-1}`),class=enable_prev?'':' disabled')= i18n('<<')
         if now >= 3
             a(href=file(`/${name}/1`))= 1
@@ -61,3 +61,50 @@ mixin counter_section()
                 a
                     b= i18n('Tags')
                     b= i18n(site.tag_count+' in total')
+
+mixin license_notice(post)
+    if post.license.isCreativeCommons()
+        a(href='https://creativecommons.org/')
+            = i18n('Distribution License Agreement') + ' '
+            i.fa-brands.fa-creative-commons(aria-hidden='true')
+        .inner
+            - let is = (v)=>post.license.includes(v)
+            if is('BY')
+                span BY
+                    i.fa-brands.fa-creative-commons-by
+            if is('NC')
+                span NC
+                    i.fa-brands.fa-creative-commons-nc
+            if is('ND')
+                span ND
+                    i.fa-brands.fa-creative-commons-nd
+            if is('SA')
+                span SA
+                    i.fa-brands.fa-creative-commons-sa
+    else if post.license.type === 'REPRINT'
+        div= i18n('Distribution License Agreement')
+        .container= i18n('@CC_REPRINT')
+    else
+        div= i18n('Distribution License Agreement')
+        .container= i18n('@CC_PRIVATE')
+
+mixin Counter()
+    include /components/Counter.pug
+
+mixin Footer()
+    include /components/Footer.pug
+
+mixin NavBar()
+    include /components/NavBar.pug
+
+mixin PageLabel(label)
+    include /components/PageLabel.pug
+
+mixin SinglePost(item)
+    include /components/SinglePost.pug
+
+mixin SingleSort(v,pname)
+    include /components/SingleSort.pug
+
+mixin UserIntro()
+    include /components/UserIntro.pug

@@ -18,3 +18,20 @@ mixin meta(post)
     meta(name="description",content=post.foreword)
     meta(name="keywords",content=post.keywords.join(" "))
     meta(http-equiv="content-language",content=settings.language)
+
+mixin PageLabel(fo)
+    if fo
+        - let label = fo
+        include /components/PageLabel.pug
+        .uWcon
+            b.meta
+                date= post.date.toLocaleDateString(settings.language,{dateStyle:'full'})
+                span= post.category
+                span= post.wordCount+i18n('Characters')
+    else
+        .uWcon
+            .h1!= post.title
+            b.meta
+                date= post.date.toLocaleDateString(settings.language,{dateStyle:'full'})
+                span= post.category
+                span= post.wordCount+i18n('Characters')

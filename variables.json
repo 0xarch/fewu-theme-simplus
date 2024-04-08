@@ -1,7 +1,7 @@
 {
     "verticalNavbar": false,
     "useDefaultCopyrightText": true,
-    "copyrightText": "",
+    "logoText": "Blogs",
     "headerObjects": [
         [
             "/",
@@ -25,8 +25,32 @@
         ],
         [
             "/status/",
-            "gnome-feather-tool",
-            true
+            "Status"
         ]
-    ]
+    ],
+    "footerLinks": {
+        "Fewu": {
+            "Source Code": {
+                "type": "Link",
+                "target": "https://github.com/0xarch/fewu"
+            },
+            "Icon": {
+                "type": "Icon",
+                "target": "Fewu"
+            }
+        },
+        "Simplus": {
+            "Version": {
+                "type": "Text",
+                "target": "1.0.0"
+            }
+        },
+        "Contact Me": {
+            "Loop": {
+                "type": "JS/Each",
+                "target": "Contact",
+                "renderAs": "Link"
+            }
+        }
+    }
 }

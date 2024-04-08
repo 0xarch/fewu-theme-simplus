@@ -7,14 +7,12 @@ html
         +gbase()
         title= __title__(i18n('Tags'),user.name)
     body.new(OCP='OVERRIDE')
-        +gnome_header()
-        .intro#intro.tac
-            h1= i18n('Tags')
-        main.content#content
-            section
-                ul.intros
-                    each item in cycling.value
-                        +intro_li(item.value,'tag')
+        +NavBar
+        +PageLabel(i18n('Tags'))
+        main
+            .uWcon
+                each item in cycling.value
+                    +SingleSort(item.value,'tag')
             +gnome_page_navigator(cycling.total,cycling.now,'tag')
-        +gnome_footer()
+        +Footer
         include /components/searchPanel.pug

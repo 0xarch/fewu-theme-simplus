@@ -7,14 +7,12 @@ html
         +gbase()
         title= __title__(i18n('Categories'),user.name)
     body.new(OCP='OVERRIDE')
-        +gnome_header()
-        .intro#intro.tac
-            h1= i18n('Categories')
-        main.content#content
-            section
-                ul.intros
-                    each item in cycling.value
-                        +intro_li(item.value)
+        +NavBar
+        +PageLabel(i18n('Categories'))
+        main
+            ul.cSortCon.uWcon(style='grid-template-columns:repeat(auto-fill,minmax(400px,1fr))')
+                each item in cycling.value
+                    +SingleSort(item.value,'category')
             +gnome_page_navigator(cycling.total,cycling.now,'category')
-        +gnome_footer()
+        +Footer
         include /components/searchPanel.pug

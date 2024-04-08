@@ -1,0 +1,6 @@
+- let posts = v.included
+- let lastpost = ID[posts[0]]
+- let name = v.catename || v.tagname
+a.p8(href=file(`/${pname}/s${name}/1/`),style='--i:var(--'+colors[Math.floor(name.length*2+5)%7]+'3)')
+    b= name
+    small= i18n(posts.length+' in total')
