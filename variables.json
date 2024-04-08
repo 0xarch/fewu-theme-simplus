@@ -30,19 +30,23 @@
     ],
     "footerLinks": {
         "Fewu": {
+            "Version": {
+                "type": "JS/ConstGetter",
+                "target": "FEWU_RELEASE_VERSION"
+            },
             "Source Code": {
                 "type": "Link",
                 "target": "https://github.com/0xarch/fewu"
-            },
-            "Icon": {
-                "type": "Icon",
-                "target": "Fewu"
             }
         },
         "Simplus": {
             "Version": {
                 "type": "Text",
                 "target": "1.0.0"
+            },
+            "Github": {
+                "type": "Link",
+                "target": "https://github.com/0xarch/fewu-theme-simplus"
             }
         },
         "Contact Me": {

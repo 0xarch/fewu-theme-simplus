@@ -11,27 +11,17 @@ html
         main.uWcon
             +Counter
             h2= i18n('All categories')
-            ul.cSortCon
+            .cSortCon
                 each i in site.used_categories
-                    li
-                        a
-                            b= i
-                            small= i18n(site.categories[i].included.length+' in total')
+                    +SingleSort(site.tags[i],'category')
             h2= i18n('All tags')
-            ul.cSortCon
+            .cSortCon
                 each i in site.used_tags
-                    li
-                        a
-                            b= i
-                            small= i18n(site.tags[i].included.length+' in total')
-            header
-                    h2= i18n('Local information')
-                    small= i18n('@STAT_PRO_WARN')
+                    +SingleSort(site.tags[i],'tag')
+            h2= i18n('Local information')
+            small= i18n('@STAT_PRO_WARN')
             section
-                div 
-                    each v,k in CONSTANTS
-                        div
-                            b=k+'='
-                            i=v
+                each v,k in CONSTANTS
+                    p= k+' = '+v
         +Footer
         include /components/searchPanel.pug

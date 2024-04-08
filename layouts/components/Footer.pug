@@ -13,6 +13,8 @@ footer.uWcon
                             a.logo-of-theme
                     else if i.type == 'Text'
                         span= i18n(i.target)
+                    else if i.type == 'JS/ConstGetter'
+                        span= CONSTANTS[i.target]
                     else if i.type == 'JS/Each'
                         - let target = i.target.split('+')
                         - let sourceFrom= {}, fnc= ()=>{}

@@ -10,7 +10,7 @@ html
         +NavBar
         +PageLabel(i18n('Categories'))
         main.uWcon
-            ul.cSortCon
+            .cSortCon
                 each item in cycling.value
                     +SingleSort(item.value,'category')
             +gnome_page_navigator(cycling.total,cycling.now,'category')

@@ -9,8 +9,8 @@ html
     body.new(OCP='OVERRIDE')
         +NavBar
         +PageLabel(i18n('Tags'))
-        main
-            .uWcon
+        main.uWcon
+            .cSortCon
                 each item in cycling.value
                     +SingleSort(item.value,'tag')
             +gnome_page_navigator(cycling.total,cycling.now,'tag')
