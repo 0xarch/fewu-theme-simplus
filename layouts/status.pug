@@ -3,40 +3,35 @@ doctype html
 html
     head 
         +meta(user.note,user.keyword||'')
-        +gbase()
+        +BasicStyleSheet
         title= __title__(i18n('Status'),user.name)
     body(OCP='OVERRIDE')
         +NavBar
         +PageLabel(i18n('Status'))
-        main.content#content
-            +counter_section()
-            .special
-                h2= i18n('All categories')
-            section
-                ul.intros
-                    each i in site.used_categories
-                        li
-                            a.mark(style='--i:var(--'+colors[Math.floor(i.length*2+5)%7]+'3)')
-                                b= i
-                                small= i18n(site.categories[i].included.length+' in total')
-            .special
-                h2= i18n('All tags')
-            section
-                ul.intros
-                    each i in site.used_tags
-                        li
-                            a.mark(style='--i:var(--'+colors[Math.floor(i.length*2+5)%7]+'3)')
-                                b= i
-                                small= i18n(site.tags[i].included.length+' in total')
-            .special
-                header
+        main.uWcon
+            +Counter
+            h2= i18n('All categories')
+            ul.cSortCon
+                each i in site.used_categories
+                    li
+                        a
+                            b= i
+                            small= i18n(site.categories[i].included.length+' in total')
+            h2= i18n('All tags')
+            ul.cSortCon
+                each i in site.used_tags
+                    li
+                        a
+                            b= i
+                            small= i18n(site.tags[i].included.length+' in total')
+            header
                     h2= i18n('Local information')
                     small= i18n('@STAT_PRO_WARN')
             section
                 div 
                     each v,k in CONSTANTS
                         div
-                            b=k
+                            b=k+'='
                             i=v
         +Footer
         include /components/searchPanel.pug

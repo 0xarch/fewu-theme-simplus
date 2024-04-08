@@ -4,13 +4,13 @@ doctype html
 html 
     head
         +meta(user.note,user.keyword||'')
-        +gbase()
+        +BasicStyleSheet
         title= __title__(i18n('Categories'),user.name)
     body.new(OCP='OVERRIDE')
         +NavBar
         +PageLabel(i18n('Categories'))
-        main
-            ul.cSortCon.uWcon(style='grid-template-columns:repeat(auto-fill,minmax(400px,1fr))')
+        main.uWcon
+            ul.cSortCon
                 each item in cycling.value
                     +SingleSort(item.value,'category')
             +gnome_page_navigator(cycling.total,cycling.now,'category')

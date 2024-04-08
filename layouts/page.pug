@@ -3,12 +3,11 @@ doctype html
 html 
     head 
         +meta(user.note,i18n('Posts'))
-        +gbase()
+        +BasicStyleSheet
         title= __title__(i18n('Posts'),user.name)
     body(OCP='OVERRIDE') 
         +NavBar
-        .intro#intro.tac
-            h1= i18n('Posts') + i18n('Page '+cycling.now)
+        +PageLabel(i18n('Posts') + i18n('Page '+cycling.now))
         main
             ul.cPostCon.uWcon(style='grid-template-columns:repeat(auto-fill,minmax(400px,1fr))')
                 each bid in sort.defaultOrder.slice(0,10)

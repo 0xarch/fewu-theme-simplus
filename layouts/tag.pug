@@ -4,7 +4,7 @@ doctype html
 html 
     head
         +meta(user.note,user.keyword||i18n('Tags'))
-        +gbase()
+        +BasicStyleSheet
         title= __title__(i18n('Tags'),user.name)
     body.new(OCP='OVERRIDE')
         +NavBar

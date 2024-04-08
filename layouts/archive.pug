@@ -3,12 +3,12 @@ doctype html
 html 
     head 
         +meta(user.note,i18n('Archives'))
-        +gbase()
+        +BasicStyleSheet
         title= __title__(i18n('Archives'),user.name)
     body(OCP='OVERRIDE') 
         +NavBar
         +PageLabel(i18n('Archives'))
-        main.content#content
+        main.uWcon
             - let used_year = []
             - let y = {}
             each bid in cycling.value
@@ -18,12 +18,11 @@ html
                     - used_year.push(post.datz.y)
                 - y[post.datz.y].push(bid)
             each v,k in y
-                .special
-                    h2= k
-                ul.intros(style='grid-template-columns:repeat(auto-fill,minmax(480px,1fr))')
+                h2= k
+                ul.cPostCon
                     each item in v
-                        +post_li(IDMap.get(item))
-                +foot_navigator(cycling.total,cycling.now,'archive')
-        +gnome_footer()
+                        +SinglePost(IDMap.get(item))
+            +foot_navigator(cycling.total,cycling.now,'archive')
+        +Footer
     style.
         a.block{display:block}

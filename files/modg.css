@@ -3,18 +3,6 @@
 @media(prefers-color-scheme:dark){
     :root { --Cdisplay: #fcfcfc; --Cbg: #1b1e20 }
 }
-body{background:var(--Cbg) !important}
-html::-webkit-scrollbar{display: none}
-html{ scrollbar-width: none }
-.Nls { list-style: none }
-.alc,.jcc,.fl,.eaj{display: flex}.alc,.eaj{align-items: center}
-.jcc,.eaj{justify-content: center}.nowrap{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
-.tac{text-align:center}.col{flex-direction:column}
-.jcsa{justify-content:space-around}.jcsb{justify-content:space-between}
-.intro,#intro{color:var(--secondary-color)}
-:root[ismobile=true] .nomobile{display:none}.fit{width:fit-content}
-#content{background:var(--background-color);padding:60px 0 70px}
-.special h2{margin-top:0;margin-bottom:16px}
 @media(max-width:700px){.nomobile{display:none}}
 @media(min-width:701px){.onmobile{display:none}}
 @media(min-width:576px){:root{--Wcon:540px}}
@@ -22,8 +10,20 @@ html{ scrollbar-width: none }
 @media(min-width:992px){:root{--Wcon:960px}}
 @media(min-width:1200px){:root{--Wcon:1140px}}
 @media(min-width:1400px){:root{--Wcon:1320px}}
-.logo-of-theme{height:32px;width:80px;background:#824626;color:#fff}
-.logo-of-theme::after{content:'!WACAL~';font-size:16px}
+body{ background: var(--Cbg); color: var(--Cdisplay);
+    margin: 0 }
+html::-webkit-scrollbar{display: none}
+html { scrollbar-width: none }
+hr { opacity: .5; border-bottom-width: 0px }
+.Nls { list-style: none }
+.alc,.jcc,.fl,.eaj{display: flex}.alc,.eaj{align-items: center}
+.jcc,.eaj{justify-content: center}.nowrap{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.tac{text-align:center}.col{flex-direction:column}
+.jcsa{justify-content:space-around}.jcsb{justify-content:space-between}
+.intro,#intro{color:var(--secondary-color)}
+:root[ismobile=true] .nomobile{display:none}.fit{width:fit-content}
+.logo-of-theme{height:32px;width:80px;background:var(--Cbrand);color:#fff}
+.logo-of-theme::after{content:'simplus';font-size:16px}
 #url,#searchUrl{display:none}
 .clist{padding:20px}
 .clist hr{visibility:hidden}
