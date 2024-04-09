@@ -7,14 +7,13 @@ html(lang="zh")
         +BasicECMAScript
         +use('KFooter')
         +use('KNavigationBar')
+        +use('KUserIntro')
         if sort.defaultOrder.length>10
             +use('KPageNavigator')
         title= __title__(i18n('Home'),user.name)
     body(OCP='OVERRIDE')
         +KNavigationBar
-        +UserIntro
-        br
-        +Counter
+        +KUserIntro
         br
         main.uWcon
             ul.cPostCon
