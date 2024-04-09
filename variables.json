@@ -1,4 +1,5 @@
 {
+    "VERSION_NUMBER": "2.0.0",
     "verticalNavbar": false,
     "useDefaultCopyrightText": true,
     "logoText": "Blogs",
@@ -45,8 +46,8 @@
         },
         "Simplus": {
             "Version": {
-                "type": "Text",
-                "target": "1.0.0"
+                "type": "JS/ThemeGetter",
+                "target": "VERSION_NUMBER"
             },
             "Github": {
                 "type": "Link",

@@ -6,10 +6,12 @@ html
         +meta(user.note,user.keyword||i18n('Tags'))
         +BasicStyleSheet
         +BasicECMAScript
+        +use('KFooter')
+        +use('KNavigationBar')
         +use('KPageNavigator')
         title= __title__(i18n('Tags'),user.name)
     body.new(OCP='OVERRIDE')
-        +NavBar
+        +KNavigationBar
         +PageLabel(i18n('Tags'))
         main.uWcon
             .cSortCon
@@ -17,5 +19,4 @@ html
                     +SingleSort(item.value,'tag')
             +KPageNavigator(cycling.total,cycling.now,'tag')
         br
-        +Footer
-        include /components/searchPanel.pug
+        +KFooter

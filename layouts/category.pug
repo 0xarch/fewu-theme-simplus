@@ -6,15 +6,16 @@ html
         +meta(user.note,user.keyword||'')
         +BasicStyleSheet
         +BasicECMAScript
+        +use('KFooter')
+        +use('KNavigationBar')
         +use('KPageNavigator')
         title= __title__(i18n('Categories'),user.name)
     body.new(OCP='OVERRIDE')
-        +NavBar
+        +KNavigationBar
         +PageLabel(i18n('Categories'))
         main.uWcon
             .cSortCon
                 each item in cycling.value
                     +SingleSort(item.value,'category')
             +KPageNavigator(cycling.total,cycling.now,'category')
-        +Footer
-        include /components/searchPanel.pug
+        +KFooter

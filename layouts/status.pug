@@ -5,9 +5,11 @@ html
         +meta(user.note,user.keyword||'')
         +BasicStyleSheet
         +BasicECMAScript
+        +use('KFooter')
+        +use('KNavigationBar')
         title= __title__(i18n('Status'),user.name)
     body(OCP='OVERRIDE')
-        +NavBar
+        +KNavigationBar
         +PageLabel(i18n('Status'))
         main.uWcon
             +Counter
@@ -25,5 +27,4 @@ html
                 each v,k in CONSTANTS
                     p= k+' = '+v
         hr
-        +Footer
-        include /components/searchPanel.pug
+        +KFooter

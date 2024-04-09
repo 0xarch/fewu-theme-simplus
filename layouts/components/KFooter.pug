@@ -1,0 +1,40 @@
+- COMPONENTS['KFooter'] = ['Cfiles/components/KFooter.css']
+
+mixin KFooter()
+    footer.KFooter.uWcon
+        .kLinks
+            each v,k in theme.footerLinks
+                nav
+                    h3= i18n(k)
+                    each i,n in v
+                        if i.type == 'Link'
+                            a(href=i.target)= i18n(n)
+                        else if i.type == 'Icon'
+                            if i.target == 'Fewu'
+                                a!= fewu.logo()
+                            else if i.target == 'Simplus'
+                                a.logo-of-theme
+                        else if i.type == 'Text'
+                            span= i18n(i.target)
+                        else if i.type == 'JS/ConstGetter'
+                            span= CONSTANTS[i.target]
+                        else if i.type == 'JS/ThemeGetter'
+                            span= theme[i.target]
+                        else if i.type == 'JS/Each'
+                            - let target = i.target
+                            - let sourceFrom= {}, fnc= ()=>{}
+                            if target == 'Contact'
+                                - sourceFrom = user.data?.contact ?? {}
+                            else if target == 'Friend'
+                                - sourceFrom = user.data?.friendLinks ?? {} 
+                            if i.renderAs == 'Link'
+                                - fnc = (v,k)=>`<a href="${v}">${i18n(k)}</a>`
+                            else if i.renderAs == 'Plain'
+                                - fnc = (v,k)=>`<span>${i18n(v)}</span>`
+                            each v,k in sourceFrom
+                                != fnc(v,k)
+        br
+        hr
+        .kCopyr.tac
+            != new Date().getFullYear()+ ' '
+            != theme.useDefaultCopyrightText?i18n('@COPYR_TEXT'):user.data&&user.data.copyright

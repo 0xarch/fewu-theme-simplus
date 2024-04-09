@@ -5,22 +5,23 @@ html(lang="zh")
         +meta(user.note,user.keyword||'')
         +BasicStyleSheet
         +BasicECMAScript
+        +use('KFooter')
+        +use('KNavigationBar')
         if sort.defaultOrder.length>10
             +use('KPageNavigator')
         title= __title__(i18n('Home'),user.name)
     body(OCP='OVERRIDE')
-        +NavBar
+        +KNavigationBar
         +UserIntro
         br
         +Counter
         br
-        main
-            ul.cPostCon.uWcon(style='grid-template-columns:repeat(auto-fill,minmax(400px,1fr))')
+        main.uWcon
+            ul.cPostCon
                 each bid in sort.defaultOrder.slice(0,10)
                     +SinglePost(IDMap.get(bid))
                     br
         if sort.defaultOrder.length>10
             +KPageNavigator(Math.ceil(sort.defaultOrder.length/10),1,'page')
         hr
-        +Footer
-        include /components/searchPanel.pug
+        +KFooter

@@ -5,17 +5,18 @@ html
         +meta(user.note,i18n('Posts'))
         +BasicStyleSheet
         +BasicECMAScript
+        +use('KFooter')
+        +use('KNavigationBar')
         +use('KPageNavigator')
         title= __title__(i18n('Posts'),user.name)
     body(OCP='OVERRIDE') 
-        +NavBar
+        +KNavigationBar
         +PageLabel(i18n('Posts') + i18n('Page '+cycling.now))
-        main
-            ul.cPostCon.uWcon(style='grid-template-columns:repeat(auto-fill,minmax(400px,1fr))')
+        main.uWcon
+            ul.cPostCon
                 each bid in sort.defaultOrder.slice(0,10)
                     +SinglePost(IDMap.get(bid))
                     br
             +KPageNavigator(cycling.total,cycling.now,'page')
         hr
-        +Footer
-        include /components/searchPanel.pug
+        +KFooter

@@ -1,14 +1,12 @@
 document.addEventListener('DOMContentLoaded',()=>{
-    const NAV_ROOT = document.getElementById('NAV_ROOT');
-    const NAV_BAR_TOGGLE = document.getElementById('NAV_BAR_TOGGLE');
-    const NAV_BAR_CON = document.getElementById('NAV_BAR_CON');
-    const NAVIGATION_LOGO_WIDTH = document.getElementById('NAV_LOGO').clientWidth;
+    const NAV_ROOT = document.querySelector('.KNavigationBar');
+    const NAV_BAR_TOGGLE = NAV_ROOT.querySelector('.kToggle');
+    const NAV_BAR_CON = NAV_ROOT.querySelector('.kCon');
+    const NAVIGATION_LOGO_WIDTH = NAV_ROOT.querySelector('.kLogo').clientWidth;
     const NAVIGATION_WIDTH = NAV_BAR_CON.clientWidth;
-    ((result=0)=>{
-        NAV_BAR_CON.childNodes.forEach(value=>{
-            result += value.clientHeight;
-        })
-        NAV_BAR_CON.style.setProperty('--expanded-height',result+'px');
+    (()=>{
+        let expandedHeight = NAV_BAR_CON.childElementCount*40 + 'px';
+        NAV_BAR_CON.style.setProperty('--expanded-height',expandedHeight);
     })()
     const NavBarIntelliJudge = () => {
         if(document.documentElement.clientWidth<NAVIGATION_WIDTH + NAVIGATION_LOGO_WIDTH +64){
@@ -20,7 +18,9 @@ document.addEventListener('DOMContentLoaded',()=>{
         }
     }
     window.addEventListener('resize',NavBarIntelliJudge);
-    NAV_BAR_TOGGLE.addEventListener('click',() =>
-        NAV_ROOT.classList.toggle('collapsed'));
+    NAV_BAR_TOGGLE.addEventListener('click',() => {
+        NAV_ROOT.classList.toggle('collapsed');
+    });
     NavBarIntelliJudge();
+    NAV_ROOT.classList.add('-Ready-');
 })

@@ -1,0 +1,15 @@
+- COMPONENTS['KNextPage']=[ 'Cfiles/components/KNextPage.css' ]
+
+mixin KNextPage(item=post)
+    .KNextPage
+        - let earliest = item.nextID?false:true
+        - let latest = item.prevID?false:true
+        - let __prev = IDMap.get(item.prevID)
+        - let __next = IDMap.get(item.nextID)
+        a.arrow.left.nowrap(href=!latest&&file(__prev.path.website),class=latest?'disabled':'')
+            = '← '
+            = latest?i18n('Already latest'):__prev.title
+        a.arrow.right.nowrap(href=!earliest&&file(__next.path.website),class=earliest?'disabled':'')
+            = earliest?i18n('Already earliest'):__next.title
+            = ' →'
+        a.top(href='#')= i18n('Top')

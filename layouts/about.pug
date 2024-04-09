@@ -7,11 +7,13 @@ html(lang="zh")
         +BasicECMAScript
         +prelude(post)
         +meta(post)
+        +use('KFooter')
+        +use('KNavigationBar')
         title= __title__(post.title,'read')
     body.colorful(OCP='OVERRIDE',style='--color1:'+Plugin.getColorByString(post.content)+';--color2:'+Plugin.getColorByString(post.parsed.content))
-        +NavBar
+        +KNavigationBar
         +PageLabel(i18n('About'))
         main
             article.uWcon
                 #markdown_fillContent.container!= post.parsed.content
-        +Footer
+        +KFooter

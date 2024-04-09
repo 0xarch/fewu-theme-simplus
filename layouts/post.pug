@@ -7,9 +7,13 @@ html(lang="zh")
         +meta(post)
         +BasicStyleSheet
         +BasicECMAScript
+        +use('KContentTable')
+        +use('KFooter')
+        +use('KNextPage')
+        +use('KNavigationBar')
         title= __title__(post.title,'read')
     body.colorful(OCP='OVERRIDE',style='--color1:'+Plugin.getColorByString(post.foreword)+';--color2:'+Plugin.getColorByString(post.parsed.foreword))
-        +NavBar
+        +KNavigationBar
         +PageLabel
         main.uWcon
             unless post.old == true
@@ -20,24 +24,11 @@ html(lang="zh")
                 if post.old == true
                     != post.parsed.foreword
                 != post.parsed.content
-            br
+            hr
             .fit(class=post.license.isCreativeCommons()&&'cclogo')
                 +license_notice(post)
             br
-            .pagination
-                - let earliest = post.nextID?false:true
-                - let latest = post.prevID?false:true
-                - let __prev = IDMap.get(post.prevID)
-                - let __next = IDMap.get(post.nextID)
-                a.arrow.left.nowrap(href=!latest&&file(__prev.paths.website),class=latest?'disabled':'')
-                    = '← '
-                    = latest?i18n('Already latest'):__prev.title
-                a.arrow.right.nowrap(href=!earliest&&file(__next.paths.website),class=earliest?'disabled':'')
-                    = earliest?i18n('Already earliest'):__next.title
-                    = ' →'
-                a.top(href='#')= i18n('Top')
+            +KNextPage
         hr
-        +Footer
-        .fix#toc
-        .fix.toc-con-button.nomobile
-            button= 'TOC'
+        +KFooter
+        +KContentTable

@@ -6,9 +6,15 @@ mixin prelude(post)
             window.addEventListener('DOMContentLoaded',()=>{
                 hljs.highlightAll();
             })
-    script(src=linkPrefix("files/post.js"))
-    script(src=linkPrefix("files/ui.js"))
-    link(rel="stylesheet",href=linkPrefix("files/post.css"))
+    -//script(src=linkPrefix("files/post.js"))
+    -//script(src=linkPrefix("files/ui.js"))
+    -//link(rel="stylesheet",href=linkPrefix("files/post.css"))
+    style.
+        blockquote{
+            margin: 4px;
+            border-left: 2px solid var(--Cbrand);
+            opacity: .75
+        }
 
 mixin meta(post)
     link(rel="icon",href=file("files/icon.svg"))
@@ -20,18 +26,12 @@ mixin meta(post)
     meta(http-equiv="content-language",content=settings.language)
 
 mixin PageLabel(fo)
-    if fo
-        - let label = fo
-        include /components/PageLabel.pug
-        .uWcon
-            b.meta
-                date= post.date.toLocaleDateString(settings.language,{dateStyle:'full'})
-                span= post.category
-                span= post.wordCount+i18n('Characters')
-    else
-        .uWcon
+    .PageLabel.uWcon
+        if fo
+            h1!= fo
+        else
             .h1!= post.title
-            b.meta
-                date= post.date.toLocaleDateString(settings.language,{dateStyle:'full'})
-                span= post.category
-                span= post.wordCount+i18n('Characters')
+        b.meta
+            date= post.date.toLocaleDateString(settings.language,{dateStyle:'full'})
+            span= post.category
+            span= post.wordCount+i18n('Characters')

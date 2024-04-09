@@ -1,0 +1,12 @@
+- COMPONENTS['KNavigationBar'] = ['Cfiles/components/KNavigationBar.css','Jfiles/es/KNavigationBar.js']
+
+mixin KNavigationBar()
+    header.KNavigationBar
+        a.kLogo(href=file())
+            != (user.data && user.data.logo) ? user.data.logo : fewu.logo()
+            != theme.logoText
+        button.kToggle
+            != plugin.load_svg('kde-menu')
+        .kCon
+            each v in __prov_map||theme.headerObjects
+                a(href=file(v[0]))= i18n(v[1])
