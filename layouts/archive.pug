@@ -4,6 +4,8 @@ html
     head 
         +meta(user.note,i18n('Archives'))
         +BasicStyleSheet
+        +BasicECMAScript
+        +use('KPageNavigator')
         title= __title__(i18n('Archives'),user.name)
     body(OCP='OVERRIDE') 
         +NavBar
@@ -22,7 +24,7 @@ html
                 ul.cPostCon
                     each item in v
                         +SinglePost(IDMap.get(item))
-            +foot_navigator(cycling.total,cycling.now,'archive')
+            +KPageNavigator(cycling.total,cycling.now,'archive')
         +Footer
     style.
         a.block{display:block}

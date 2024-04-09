@@ -1,9 +1,14 @@
-header.navbar
-    a.logo(href=file())
+header#NAV_ROOT
+    a#NAV_LOGO(href=file())
         != (user.data && user.data.logo) ? user.data.logo : fewu.logo()
         != theme.logoText
-    details(open='true')
-        summary!= plugin.load_svg('kde-menu')
-        .con
-            each v in __prov_map||theme.headerObjects
-                a(href=file(v[0]))= i18n(v[1])
+    -//details(open='true')
+    -//    summary!= plugin.load_svg('kde-menu')
+    -//    .con
+    -//        each v in __prov_map||theme.headerObjects
+    -//            a(href=file(v[0]))= i18n(v[1])
+    button#NAV_BAR_TOGGLE
+        != plugin.load_svg('kde-menu')
+    #NAV_BAR_CON
+        each v in __prov_map||theme.headerObjects
+            a(href=file(v[0]))= i18n(v[1])

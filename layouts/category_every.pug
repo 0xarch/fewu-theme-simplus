@@ -4,6 +4,8 @@ html
     head 
         +meta(user.note,varias.name)
         +BasicStyleSheet
+        +BasicECMAScript
+        +use('KPageNavigator')
         title= __title__(varias.name,user.name)
     body(OCP='OVERRIDE')
         +NavBar
@@ -12,5 +14,5 @@ html
             ul.cPostCon.uWcon
                 each bid in cycling.value
                     +SinglePost(IDMap.get(+bid))
-                +foot_navigator(cycling.total,cycling.now,'category/s'+varias.name)
+                +KPageNavigator(cycling.total,cycling.now,'category/s'+varias.name)
         +Footer

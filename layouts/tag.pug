@@ -5,6 +5,8 @@ html
     head
         +meta(user.note,user.keyword||i18n('Tags'))
         +BasicStyleSheet
+        +BasicECMAScript
+        +use('KPageNavigator')
         title= __title__(i18n('Tags'),user.name)
     body.new(OCP='OVERRIDE')
         +NavBar
@@ -13,6 +15,7 @@ html
             .cSortCon
                 each item in cycling.value
                     +SingleSort(item.value,'tag')
-            +gnome_page_navigator(cycling.total,cycling.now,'tag')
+            +KPageNavigator(cycling.total,cycling.now,'tag')
+        br
         +Footer
         include /components/searchPanel.pug

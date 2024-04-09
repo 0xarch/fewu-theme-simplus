@@ -4,6 +4,9 @@ html(lang="zh")
     head
         +meta(user.note,user.keyword||'')
         +BasicStyleSheet
+        +BasicECMAScript
+        if sort.defaultOrder.length>10
+            +use('KPageNavigator')
         title= __title__(i18n('Home'),user.name)
     body(OCP='OVERRIDE')
         +NavBar
@@ -17,6 +20,7 @@ html(lang="zh")
                     +SinglePost(IDMap.get(bid))
                     br
         if sort.defaultOrder.length>10
-            +foot_navigator(Math.ceil(sort.defaultOrder.length/10),1,'page')
+            +KPageNavigator(Math.ceil(sort.defaultOrder.length/10),1,'page')
+        hr
         +Footer
         include /components/searchPanel.pug

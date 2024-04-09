@@ -5,6 +5,8 @@ html
     head
         +meta(user.note,user.keyword||'')
         +BasicStyleSheet
+        +BasicECMAScript
+        +use('KPageNavigator')
         title= __title__(i18n('Categories'),user.name)
     body.new(OCP='OVERRIDE')
         +NavBar
@@ -13,6 +15,6 @@ html
             .cSortCon
                 each item in cycling.value
                     +SingleSort(item.value,'category')
-            +gnome_page_navigator(cycling.total,cycling.now,'category')
+            +KPageNavigator(cycling.total,cycling.now,'category')
         +Footer
         include /components/searchPanel.pug

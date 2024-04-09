@@ -1,7 +1,11 @@
-include /mixins/components.pug
-
+- let COMPONENTS = {}
 - let linkPrefix = (buildMode=='devel'||!settings.cdn)?(v)=>file(v):(v)=>settings.cdn+v
 - let colors = ['blue','green','yellow','orange','red','purple','brown']
+
+include /components/KPageNavigator.pug
+
+include /mixins/components.pug
+
 
 mixin postcard(item)
     include /components/postcard.pug
@@ -35,7 +39,18 @@ mixin gbase()
     link(rel="stylesheet",href=linkPrefix('/files/Cantarell/stylesheet.css'))
 
 mixin BasicStyleSheet()
-    link(rel="stylesheet",href=linkPrefix('/files/modg.css'))
+    link(rel="stylesheet",href=linkPrefix('/files/style.css'))
+
+mixin BasicECMAScript()
+    script(src=linkPrefix('/files/bar.js'))
+
+mixin use(name)
+    if COMPONENTS[name]
+        each v in COMPONENTS[name]
+            if v.substring(1,0) == 'C'
+                link(rel="stylesheet",href=linkPrefix(v.substring(1)))
+            else if v.substring(1,0) == 'J'
+                script(src=linkPrefix(v.substring(1)))
 
 mixin gnome_header(__prov_map)
     include /includes/gnome_header.pug

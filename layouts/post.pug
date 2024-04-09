@@ -6,6 +6,7 @@ html(lang="zh")
         +prelude(post)
         +meta(post)
         +BasicStyleSheet
+        +BasicECMAScript
         title= __title__(post.title,'read')
     body.colorful(OCP='OVERRIDE',style='--color1:'+Plugin.getColorByString(post.foreword)+';--color2:'+Plugin.getColorByString(post.parsed.foreword))
         +NavBar
@@ -35,6 +36,7 @@ html(lang="zh")
                     = earliest?i18n('Already earliest'):__next.title
                     = ' →'
                 a.top(href='#')= i18n('Top')
+        hr
         +Footer
         .fix#toc
         .fix.toc-con-button.nomobile

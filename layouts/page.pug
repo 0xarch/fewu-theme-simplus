@@ -4,6 +4,8 @@ html
     head 
         +meta(user.note,i18n('Posts'))
         +BasicStyleSheet
+        +BasicECMAScript
+        +use('KPageNavigator')
         title= __title__(i18n('Posts'),user.name)
     body(OCP='OVERRIDE') 
         +NavBar
@@ -13,6 +15,7 @@ html
                 each bid in sort.defaultOrder.slice(0,10)
                     +SinglePost(IDMap.get(bid))
                     br
-            +foot_navigator(cycling.total,cycling.now,'page')
+            +KPageNavigator(cycling.total,cycling.now,'page')
+        hr
         +Footer
         include /components/searchPanel.pug

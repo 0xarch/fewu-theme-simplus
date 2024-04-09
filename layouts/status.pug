@@ -4,6 +4,7 @@ html
     head 
         +meta(user.note,user.keyword||'')
         +BasicStyleSheet
+        +BasicECMAScript
         title= __title__(i18n('Status'),user.name)
     body(OCP='OVERRIDE')
         +NavBar
@@ -23,5 +24,6 @@ html
             section
                 each v,k in CONSTANTS
                     p= k+' = '+v
+        hr
         +Footer
         include /components/searchPanel.pug

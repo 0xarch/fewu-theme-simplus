@@ -29,7 +29,11 @@
         ]
     ],
     "footerLinks": {
-        "Fewu": {
+        "Project Fivewu": {
+            "FewuLabel": {
+                "type": "Text",
+                "target": "Fewu Generator "
+            },
             "Version": {
                 "type": "JS/ConstGetter",
                 "target": "FEWU_RELEASE_VERSION"
@@ -49,10 +53,17 @@
                 "target": "https://github.com/0xarch/fewu-theme-simplus"
             }
         },
-        "Contact Me": {
+        "Contact": {
             "Loop": {
                 "type": "JS/Each",
                 "target": "Contact",
+                "renderAs": "Link"
+            }
+        },
+        "Friends": {
+            "Loop": {
+                "type": "JS/Each",
+                "target": "Friend",
                 "renderAs": "Link"
             }
         }
