@@ -44,22 +44,18 @@ mixin counter_section()
 mixin license_notice(post)
     if post.license.isCreativeCommons()
         a(href='https://creativecommons.org/')
-            = i18n('Distribution License Agreement') + ' '
-            i.fa-brands.fa-creative-commons(aria-hidden='true')
+            = i18n('Distribution License Agreement')
         .inner
+            b="Creative Commons "
             - let is = (v)=>post.license.includes(v)
             if is('BY')
                 span BY
-                    i.fa-brands.fa-creative-commons-by
             if is('NC')
                 span NC
-                    i.fa-brands.fa-creative-commons-nc
             if is('ND')
                 span ND
-                    i.fa-brands.fa-creative-commons-nd
             if is('SA')
                 span SA
-                    i.fa-brands.fa-creative-commons-sa
     else if post.license.type === 'REPRINT'
         div= i18n('Distribution License Agreement')
         .container= i18n('@CC_REPRINT')
