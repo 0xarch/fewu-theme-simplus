@@ -26,5 +26,8 @@ html
             section
                 each v,k in CONSTANTS
                     p= k+' = '+v
+            section
+                each v,k in db.modules.versions
+                    p= k+' = '+v
         hr
         +KFooter
