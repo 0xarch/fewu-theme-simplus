@@ -14,7 +14,7 @@ html
         +PageLabel(i18n('Posts') + i18n('Page '+cycling.now))
         main.uWcon
             ul.cPostCon
-                each bid in sort.defaultOrder.slice(0,10)
+                each bid in sort.defaultOrder.slice(10*(cycling.now-1),10*(cycling.now))
                     +SinglePost(IDMap.get(bid))
                     br
             +KPageNavigator(cycling.total,cycling.now,'page')
