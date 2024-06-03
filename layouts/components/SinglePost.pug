@@ -3,7 +3,7 @@ li
         a(href=file(item.path.website))
             h2= item.title
     b.meta
-        date= item.date.toLocaleDateString(settings.language,{dateStyle:'full'})
+        date= new Date(item.fuzzyDate.toString()).toLocaleDateString(settings.language,{dateStyle:'full'})
         span= item.category
         span= item.wordCount+i18n('Characters')
     p!= item.foreword
