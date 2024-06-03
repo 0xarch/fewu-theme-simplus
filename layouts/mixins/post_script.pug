@@ -8,7 +8,7 @@ mixin prelude(post)
             })
     -//script(src=linkPrefix("files/post.js"))
     -//script(src=linkPrefix("files/ui.js"))
-    -//link(rel="stylesheet",href=linkPrefix("files/post.css"))
+    link(rel="stylesheet",href=linkPrefix("files/post-fix.css"))
     style.
         blockquote{
             margin: 4px;
@@ -27,11 +27,12 @@ mixin meta(post)
 
 mixin PageLabel(fo)
     .PageLabel.uWcon
-        if fo
-            h1!= fo
-        else
-            .h1!= post.title
+        -//if fo
+        -//    h1!= fo
+        -//else
+        -//    .h1!= post.title
+        br
         b.meta
-            date= post.date.toLocaleDateString(settings.language,{dateStyle:'full'})
+            date= new Date(post.fuzzyDate.toString()).toLocaleDateString(settings.language,{dateStyle:'full'})
             span= post.category
             span= post.wordCount+i18n('Characters')
